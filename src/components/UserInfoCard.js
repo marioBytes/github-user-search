@@ -1,8 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-import useThemeDetector from '../hooks/useThemeDetector';
-
 import Card from './Card';
 import Company from './svgs/icon-company';
 import Location from './svgs/icon-location';
@@ -10,8 +8,6 @@ import Twitter from './svgs/icon-twitter';
 import Website from './svgs/icon-website';
 
 const UserInfoCard = ({ user }) => {
-  const isDarkTheme = useThemeDetector();
-
   const convertedDate = new Date(user.created_at).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'short',
@@ -20,12 +16,6 @@ const UserInfoCard = ({ user }) => {
   let name = user.login;
   if (user.name) {
     name = user.name;
-  }
-
-  let activeIconColor = '#4b6a9b';
-  const inactiveIconColor = '#697c9a';
-  if (isDarkTheme) {
-    activeIconColor = '#ffffff';
   }
 
   return (
@@ -61,14 +51,11 @@ const UserInfoCard = ({ user }) => {
       </div>
       <div className="card__user-link">
         <div className="card__user-link__info">
-          <Location fill={user.location ? activeIconColor : inactiveIconColor} />
-          {user.location
-            ? <p>{user.location}</p>
-            : <p>Not Available</p>
-          }
+          <Location active={user.location} />
+          {user.location ? <p>{user.location}</p> : <p>Not Available</p>}
         </div>
         <div className="card__user-link__info">
-          <Website fill={user.blog ? activeIconColor : inactiveIconColor} />
+          <Website active={user.blog} />
           {user.blog ? (
             <a
               href={user.blog.includes('http') || user.blog.includes('https') ? user.blog : `https://${user.blog}`}
@@ -82,7 +69,7 @@ const UserInfoCard = ({ user }) => {
           )}
         </div>
         <div className="card__user-link__info">
-          <Twitter fill={user.twitter_username ? activeIconColor : inactiveIconColor} />
+          <Twitter active={user.twitter_username} />
           {user.twitter_username ? (
             <a href={`https://twitter.com/${user.twitter_username}`} target="_blank" rel="noreferrer">
               @{user.twitter_username}
@@ -92,13 +79,13 @@ const UserInfoCard = ({ user }) => {
           )}
         </div>
         <div className="card__user-link__info">
-          <Company fill={user.company ? activeIconColor : inactiveIconColor} />
+          <Company active={user.company} />
           {user.company ? <p>{user.company}</p> : <p className="inactive">Not Available</p>}
         </div>
       </div>
     </Card>
-  )
-}
+  );
+};
 
 UserInfoCard.propTypes = {
   user: propTypes.shape({
@@ -107,6 +94,6 @@ UserInfoCard.propTypes = {
     login: propTypes.string.isRequired,
     name: propTypes.string,
   }).isRequired,
-}
+};
 
 export default UserInfoCard;
