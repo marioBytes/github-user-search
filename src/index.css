@@ -55,6 +55,14 @@ p, span, a {
   line-height: 25px;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 input {
   border: none;
   font-family: inherit;
@@ -65,13 +73,63 @@ input:focus {
   outline: none;
 }
 
+.container {
+  margin: 0 24px;
+}
+
 .shadow {
-  box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.35);
-  -webkit-box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.59);
+  box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.59);
 }
 
 .card {
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding: 15px;
+}
+
+.card__user-top-section {
+  display: flex;
+  align-items: center;
+}
+
+.card__avatar-container{
+  margin-right: 15px;
+}
+
+.card__avatar-container__avatar {
+  border-radius: 50%;
+  width: 70px;
+}
+
+.card__user-metadata {
+  border-radius: 5px;
+  display: flex;
+  padding: 15px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.card__user-metadata__info {
+  text-align: center;
+}
+
+.card__user-metadata__info__count {
+  font-weight: bold;
+}
+
+.card__user-link {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card__user-link__info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .inactive {
@@ -92,9 +150,21 @@ input:focus {
     color: var(--white);
   }
 
+  .card {
+    background-color: var(--dark-blue);
+  }
+
+  .card__user-metadata {
+    background-color: var(--darker-blue);
+  }
+
   .shadow {
     box-shadow: unset;
     -webkit-box-shadow: unset;
+  }
+
+  .inactive {
+    color: var(--greyish-blue);
   }
 }
 
@@ -103,11 +173,31 @@ input:focus {
     background-color: var(--light-grey);
   }
 
-  h1, h2, h4, p, span, a {
-    color: var(--grey);
+  h1, h2, h4 {
+    color: var(--darker-blue);
+  }
+
+  p, span, a {
+    color: var(--greyish-dark-blue);
   }
 
   input {
     background-color: var(--white);
+  }
+
+  .card {
+    background-color: var(--white);
+  }
+
+  .card__user-metadata {
+    background-color: var(--light-grey);
+  }
+
+  .card__user-metadata__info__count {
+    color: var(--darker-blue);
+  }
+
+  .inactive {
+    color: var(--greyish-blue);
   }
 }
