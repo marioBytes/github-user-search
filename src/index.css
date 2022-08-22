@@ -72,13 +72,40 @@ a:hover {
 
 input {
   background-color: var(--secondary-background-color);
+  caret-color: var(--light-blue);
+  color: var(--text-color);
   border: none;
   font-family: inherit;
   padding: 15px;
+  width: 225px;
 }
 
 input:focus {
   outline: none;
+}
+
+input::placeholder {
+  color: var(--text-color);
+}
+
+.search-bar {
+  background-color: var(--secondary-background-color);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 25px;
+  padding: 5px;
+  width: 100%;
+}
+
+.search-button {
+  background-color: var(--light-blue);
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font: inherit;
+  padding: 10px 15px;
 }
 
 .container {
@@ -95,6 +122,8 @@ input:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
 .theme-switcher {
@@ -176,4 +205,8 @@ input:focus {
 
 .inactive-svg {
   fill: var(--greyish-blue);
+}
+
+.svg-search-icon {
+  fill: var(--light-blue);
 }
