@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import './App.css';
 import UserInfoCard from './components/UserInfoCard';
 import Topbar from './components/Topbar';
 import SearchBar from './components/SearchBar';
