@@ -92,6 +92,15 @@ input:focus {
 
 input::placeholder {
   color: var(--text-color);
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: var(--text-color);
+}
+
+::-ms-input-placeholder {
+  color: var(--text-color);
 }
 
 .search-bar {
