@@ -7,7 +7,7 @@
 
   --greyish-blue: #697c9a;
   --light-blue: #0079ff;
-  --shadow-color: rgba(0,0,0,0.19);
+  --shadow-color: rgba(0, 0, 0, 0.19);
   --theme-switcher-hover-color: #222731;
 
   --font-family: 'Space Mono', sans-serif;
@@ -18,7 +18,7 @@
   --text-color: #ffffff;
   --primary-background-color: #141d2f;
   --secondary-background-color: #1e2a47;
-  --theme-switcher-hover-color: #90A4D4;
+  --theme-switcher-hover-color: #90a4d4;
 }
 
 * {
@@ -32,7 +32,9 @@ body {
   font-family: var(--font-family);
 }
 
-h1, h2, h4 {
+h1,
+h2,
+h4 {
   color: var(--header-text-color);
 }
 
@@ -59,7 +61,9 @@ h4 {
   line-height: 1.25rem;
 }
 
-p, span, a {
+p,
+span,
+a {
   color: var(--text-color);
   font-size: 0.9375rem;
   line-height: 1.5625rem;
@@ -141,8 +145,8 @@ input::placeholder {
 }
 
 .shadow {
-  -webkit-box-shadow: 0px 16px 30px -10px rgba(0,0,0,0.19);
-  box-shadow: 0px 16px 30px -10px rgba(0,0,0,0.19);
+  -webkit-box-shadow: 0px 16px 30px -10px rgba(0, 0, 0, 0.19);
+  box-shadow: 0px 16px 30px -10px rgba(0, 0, 0, 0.19);
 }
 
 .topbar {
@@ -185,7 +189,7 @@ input::placeholder {
   align-items: center;
 }
 
-.card__avatar-container{
+.card__avatar-container {
   margin-right: 15px;
 }
 
