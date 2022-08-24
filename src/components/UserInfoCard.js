@@ -42,7 +42,7 @@ const UserInfoCard = ({ user }) => {
       <div className="card__user-link">
         <div className="card__user-link__info">
           <Location active={user.location} />
-          {user.location ? <p>{user.location}</p> : <p>Not Available</p>}
+          {user.location ? <p>{user.location}</p> : <p className="inactive">Not Available</p>}
         </div>
         <div className="card__user-link__info">
           <Website active={user.blog} />
@@ -97,22 +97,22 @@ const UserInfoCard = ({ user }) => {
     </div>
   ) : (
     <React.Fragment>
-    <div className="card__user-top-section">
-      <div className="card__avatar-container">
-        <img src={user.avatar_url} alt={name} className="card__avatar-container__avatar" />
-      </div>
-      <div>
-        <div>
-          <h1>{name}</h1>
-          <h3>{`@${user.login}`}</h3>
+      <div className="card__user-top-section">
+        <div className="card__avatar-container">
+          <img src={user.avatar_url} alt={name} className="card__avatar-container__avatar" />
         </div>
         <div>
-          <p>Joined: {convertedDate}</p>
+          <div>
+            <h1>{name}</h1>
+            <h3>{`@${user.login}`}</h3>
+          </div>
+          <div>
+            <p>Joined: {convertedDate}</p>
+          </div>
         </div>
       </div>
-    </div>
-    {userMetadata}
-  </React.Fragment>
+      {userMetadata}
+    </React.Fragment>
   );
 
   return <Card>{userMetadataWithAvatar}</Card>;
