@@ -12,6 +12,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   const isDarkTheme = useThemeDetector();
   const [theme, setTheme] = useState(isDarkTheme ? 'dark' : 'light');
+  const [errorMessage, setErrorMessage] = useState();
 
   useEffect(() => {
     axios.get('https://api.github.com/users/octocat')
@@ -51,6 +52,10 @@ function App() {
       .then((response) => {
         setUser(response.data);
         setLoading(false);
+      })
+      .catch((error) => {
+        setErrorMessage(error.response.data.message);
+        setLoading(false);
       });
   };
 
@@ -61,7 +66,12 @@ function App() {
   return (
     <div className="container">
       <Topbar theme={theme} switchTheme={switchTheme} />
-      <SearchBar onChange={(e) => setSearchValue(e.target.value)} onClick={handleSearch} />
+      <SearchBar
+        onChange={(e) => setSearchValue(e.target.value)}
+        onClick={handleSearch}
+        errorMessage={errorMessage}
+        value={searchValue}
+      />
       <UserInfoCard user={user} />
     </div>
   );
