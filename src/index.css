@@ -8,6 +8,7 @@
   --greyish-blue: #697c9a;
   --light-blue: #0079ff;
   --shadow-color: rgba(0,0,0,0.19);
+  --theme-switcher-hover-color: #222731;
 
   --font-family: 'Space Mono', sans-serif;
 }
@@ -17,6 +18,7 @@
   --text-color: #ffffff;
   --primary-background-color: #141d2f;
   --secondary-background-color: #1e2a47;
+  --theme-switcher-hover-color: #90A4D4;
 }
 
 * {
@@ -105,8 +107,15 @@ input::placeholder {
   border: none;
   border-radius: 5px;
   color: #ffffff;
+  cursor: pointer;
   font: inherit;
   padding: 10px 15px;
+  transition: filter 0.45s;
+}
+
+.search-button:hover {
+  filter: brightness(120%);
+  transition: filter 0.45s;
 }
 
 .container {
@@ -134,6 +143,14 @@ input::placeholder {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 10px 15px;
+}
+
+.theme-switcher:hover p,
+.theme-switcher:hover .sun-icon > g,
+.theme-switcher:hover > .moon-icon {
+  color: var(--theme-switcher-hover-color);
+  fill: var(--theme-switcher-hover-color);
 }
 
 .card {
