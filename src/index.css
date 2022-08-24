@@ -210,3 +210,38 @@ input::placeholder {
 .svg-search-icon {
   fill: var(--light-blue);
 }
+
+@media (min-width: 768px) {
+  .container {
+    margin: auto;
+    width: 573px;
+  }
+  .search-bar {
+    justify-content: space-between;
+    padding: 10px 32px;
+  }
+  input {
+    width: 300px;
+  }
+  .card {
+    padding: 40px;
+  }
+  .card__avatar-container {
+    margin-right: 25px;
+  }
+  .card__avatar-container__avatar {
+    width: 177px;
+  }
+  .card__user-link {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .card__user-link__info:nth-child(1),
+  .card__user-link__info:nth-child(2) {
+    margin-bottom: 25px;
+  }
+  .card__user-link__info {
+    width: 50%;
+  }
+}
