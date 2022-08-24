@@ -254,4 +254,12 @@ input::placeholder {
   .card__avatar-container__avatar {
     width: 117px;
   }
+  .card__desktop-view {
+    display: flex;
+  }
+  .card__desktop-view__metadata {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
 }

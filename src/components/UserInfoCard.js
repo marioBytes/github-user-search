@@ -1,6 +1,8 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
+import useWindowWidth from '../hooks/useWindowWidth';
+
 import Card from './Card';
 import Company from './svgs/icon-company';
 import Location from './svgs/icon-location';
@@ -18,22 +20,10 @@ const UserInfoCard = ({ user }) => {
     name = user.name;
   }
 
-  return (
-    <Card>
-      <div className="card__user-top-section">
-        <div className="card__avatar-container">
-          <img src={user.avatar_url} alt={name} className="card__avatar-container__avatar" />
-        </div>
-        <div>
-          <div>
-            <h1>{name}</h1>
-            <h3>{`@${user.login}`}</h3>
-          </div>
-          <div>
-            <p>Joined: {convertedDate}</p>
-          </div>
-        </div>
-      </div>
+  const width = useWindowWidth(992);
+
+  const userMetadata = (
+    <React.Fragment>
       <div>{user.bio ? <p>{user.bio}</p> : <p>This profile has no bio</p>}</div>
       <div className="card__user-metadata">
         <div className="card__user-metadata__info">
@@ -83,8 +73,49 @@ const UserInfoCard = ({ user }) => {
           {user.company ? <p>{user.company}</p> : <p className="inactive">Not Available</p>}
         </div>
       </div>
-    </Card>
+    </React.Fragment>
   );
+  const userMetadataWithAvatar = width ? (
+    <div className="card__desktop-view">
+      <div className="card__avatar-container">
+        <img src={user.avatar_url} alt={name} className="card__avatar-container__avatar" />
+      </div>
+      <div className="card__desktop-view__metadata">
+        <div className="card__user-top-section">
+          <div>
+            <div>
+              <h1>{name}</h1>
+              <h3>{`@${user.login}`}</h3>
+            </div>
+            <div>
+              <p>Joined: {convertedDate}</p>
+            </div>
+          </div>
+        </div>
+        {userMetadata}
+      </div>
+    </div>
+  ) : (
+    <React.Fragment>
+    <div className="card__user-top-section">
+      <div className="card__avatar-container">
+        <img src={user.avatar_url} alt={name} className="card__avatar-container__avatar" />
+      </div>
+      <div>
+        <div>
+          <h1>{name}</h1>
+          <h3>{`@${user.login}`}</h3>
+        </div>
+        <div>
+          <p>Joined: {convertedDate}</p>
+        </div>
+      </div>
+    </div>
+    {userMetadata}
+  </React.Fragment>
+  );
+
+  return <Card>{userMetadataWithAvatar}</Card>;
 };
 
 UserInfoCard.propTypes = {
