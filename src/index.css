@@ -79,8 +79,7 @@ input {
   color: var(--text-color);
   border: none;
   font-family: inherit;
-  padding: 15px;
-  width: 225px;
+  padding: 0 0 0 7.5px;
 }
 
 input:focus {
@@ -96,10 +95,28 @@ input::placeholder {
   border-radius: 5px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 25px;
-  padding: 5px;
+  padding: 5px 10px;
   width: 100%;
+}
+
+.search-bar__input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-bar__input-container__group {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar__input-container__error-message {
+  color: red;
+  margin-left: 62%;
+  margin-top: 75px;
+  position: absolute;
 }
 
 .search-button {
@@ -119,7 +136,8 @@ input::placeholder {
 }
 
 .container {
-  margin: 0 24px;
+  margin: 0 auto;
+  width: 90%;
 }
 
 .shadow {
@@ -229,6 +247,12 @@ input::placeholder {
   fill: var(--light-blue);
 }
 
+@media (min-width: 375px) {
+  .search-bar__input-container__group input {
+    width: 195px;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     margin: auto;
@@ -238,8 +262,25 @@ input::placeholder {
     justify-content: space-between;
     padding: 10px 32px;
   }
-  input {
-    width: 300px;
+  .search-bar__input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 15px;
+    width: 100%;
+  }
+  .search-bar__input-container__error-message {
+    color: red;
+    margin-left: unset;
+    margin-top: unset;
+    position: unset;
+  }
+  .search-bar__input-container__group {
+    display: flex;
+    align-items: center;
+  }
+  .search-bar__input-container__group input {
+    width: 250px;
   }
   .card {
     padding: 40px;
