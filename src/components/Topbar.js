@@ -5,7 +5,7 @@ import IconDark from './svgs/icon-moon';
 
 const Topbar = ({ switchTheme, theme }) => {
   return (
-    <div className="topbar">
+    <nav className="topbar" role="navigation">
       <div>
         <h1>devfinder</h1>
       </div>
@@ -22,7 +22,7 @@ const Topbar = ({ switchTheme, theme }) => {
           </React.Fragment>
         )}
       </button>
-    </div>
+    </nav>
   );
 };
 

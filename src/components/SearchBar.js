@@ -18,11 +18,12 @@ const SearchBar = (props) => {
             name="search"
             value={props.value}
             onChange={props.onChange}
+            role="search"
           />
         </div>
         {props.errorMessage && <p className="search-bar__input-container__error-message">{props.errorMessage}</p>}
       </div>
-      <button className="search-button" disabled={props.loading} onClick={props.onClick}>
+      <button className="search-button" disabled={props.loading} onClick={props.onClick} type="button">
         Search
       </button>
     </div>

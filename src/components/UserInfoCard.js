@@ -26,7 +26,7 @@ const UserInfoCard = ({ user, loading, theme }) => {
 
   const userMetadata = (
     <React.Fragment>
-      <div>
+      <div role="contentinfo">
         {loading ? (
           <p>
             <Skeleton width="25%" theme={theme} />
@@ -37,7 +37,7 @@ const UserInfoCard = ({ user, loading, theme }) => {
           <p>This profile has no bio</p>
         )}
       </div>
-      <div className="card__user-metadata">
+      <div className="card__user-metadata" role="contentinfo">
         <div className="card__user-metadata__info">
           {loading ? (
             <React.Fragment>
@@ -91,7 +91,7 @@ const UserInfoCard = ({ user, loading, theme }) => {
         </div>
       </div>
       <div className="card__user-link">
-        <div className="card__user-link__info">
+        <div className="card__user-link__info" role="contentinfo">
           {loading ? (
             <React.Fragment>
               <Skeleton circle={true} width={25} height={25} theme={theme} />
@@ -106,7 +106,7 @@ const UserInfoCard = ({ user, loading, theme }) => {
             </React.Fragment>
           )}
         </div>
-        <div className="card__user-link__info">
+        <div className="card__user-link__info" role="contentinfo">
           {loading ? (
             <React.Fragment>
               <Skeleton circle={true} width={25} height={25} theme={theme} />
@@ -131,7 +131,7 @@ const UserInfoCard = ({ user, loading, theme }) => {
             </React.Fragment>
           )}
         </div>
-        <div className="card__user-link__info">
+        <div className="card__user-link__info" role="contentinfo">
           {loading ? (
             <React.Fragment>
               <Skeleton circle={true} width={25} height={25} theme={theme} />
@@ -152,7 +152,7 @@ const UserInfoCard = ({ user, loading, theme }) => {
             </React.Fragment>
           )}
         </div>
-        <div className="card__user-link__info">
+        <div className="card__user-link__info" role="contentinfo">
           {loading ? (
             <React.Fragment>
               <Skeleton circle={true} width={25} height={25} theme={theme} />
@@ -180,11 +180,11 @@ const UserInfoCard = ({ user, loading, theme }) => {
         )}
       </div>
       <div className="card__desktop-view__metadata">
-        <div className="card__user-top-section">
+        <div className="card__user-top-section" role="contentinfo">
           <div>
             <div>
               <h1>{loading ? <Skeleton height="1.625rem" width={150} theme={theme} /> : name}</h1>
-              <h3>{loading ? <Skeleton height="1rem" width={85} theme={theme} /> : `@${user.login}`}</h3>
+              <p>{loading ? <Skeleton height="1rem" width={85} theme={theme} /> : `@${user.login}`}</p>
             </div>
             <div>
               <p>{loading ? <Skeleton height="0.9375rem" width={105} theme={theme} /> : `Joined: ${convertedDate}`}</p>
@@ -196,18 +196,18 @@ const UserInfoCard = ({ user, loading, theme }) => {
     </div>
   ) : (
     <React.Fragment>
-      <div className="card__user-top-section">
-        <div className="card__avatar-container">
+      <div className="card__user-top-section" role="contentinfo">
+        <header className="card__avatar-container" role="banner">
           {loading ? (
             <Skeleton circle={true} height={tabletWidth ? 177 : 70} width={tabletWidth ? 177 : 70} theme={theme} />
           ) : (
             <img src={user.avatar_url} alt={name} className="card__avatar-container__avatar" />
           )}
-        </div>
+        </header>
         <div>
           <div>
             <h1>{loading ? <Skeleton height="1.625rem" width={150} theme={theme} /> : name}</h1>
-            <h3>{loading ? <Skeleton height="1rem" width={85} theme={theme} /> : `@${user.login}`}</h3>
+            <h2>{loading ? <Skeleton height="1rem" width={85} theme={theme} /> : `@${user.login}`}</h2>
           </div>
           <div>
             <p>{loading ? <Skeleton height="0.9375rem" width={105} theme={theme} /> : `Joined: ${convertedDate}`}</p>
