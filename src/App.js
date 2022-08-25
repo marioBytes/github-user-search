@@ -20,7 +20,7 @@ function App() {
         setUser(response.data);
         setLoading(false);
       });
-  }, [])
+  }, []);
 
   useEffect(() => {
     let storedTheme = window.localStorage.getItem('theme');
@@ -49,7 +49,8 @@ function App() {
     setLoading(true);
     setErrorMessage('');
 
-    axios.get(`https://api.github.com/users/${searchValue}`)
+    axios
+      .get(`https://api.github.com/users/${searchValue}`)
       .then((response) => {
         setUser(response.data);
         setLoading(false);
