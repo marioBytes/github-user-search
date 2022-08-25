@@ -174,7 +174,7 @@ const UserInfoCard = ({ user, loading, theme }) => {
     <div className="card__desktop-view">
       <div className="card__avatar-container">
         {loading ? (
-          <Skeleton circle={true} height={tabletWidth ? 177 : 70} width={tabletWidth ? 177 : 70} theme={theme} />
+          <Skeleton circle={true} height={117} width={117}theme={theme} />
         ) : (
           <img src={user.avatar_url} alt={name} className="card__avatar-container__avatar" />
         )}
@@ -199,7 +199,7 @@ const UserInfoCard = ({ user, loading, theme }) => {
       <div className="card__user-top-section">
         <div className="card__avatar-container">
           {loading ? (
-            <Skeleton circle={true} height={117} width={117} theme={theme} />
+            <Skeleton circle={true} height={tabletWidth ? 177 : 70} width={tabletWidth ? 177 : 70} theme={theme} />
           ) : (
             <img src={user.avatar_url} alt={name} className="card__avatar-container__avatar" />
           )}
