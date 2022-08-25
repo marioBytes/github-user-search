@@ -72,7 +72,7 @@ function App() {
         errorMessage={errorMessage}
         value={searchValue}
       />
-      <UserInfoCard user={user} />
+      <UserInfoCard user={user} loading={loading} theme={theme} />
     </div>
   );
 }
