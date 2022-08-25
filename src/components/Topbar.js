@@ -12,12 +12,12 @@ const Topbar = ({ switchTheme, theme }) => {
       <button className="theme-switcher" onClick={switchTheme}>
         {theme === 'dark' ? (
           <React.Fragment>
-            <p>LIGHT</p>
+            LIGHT
             <IconLight fill="#ffffff" />
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <p>DARK</p>
+            DARK
             <IconDark fill="#1e2a47" />
           </React.Fragment>
         )}
