@@ -67,6 +67,7 @@ function App() {
     <div className="container">
       <Topbar theme={theme} switchTheme={switchTheme} />
       <SearchBar
+        loading={loading}
         onChange={(e) => setSearchValue(e.target.value)}
         onClick={handleSearch}
         errorMessage={errorMessage}

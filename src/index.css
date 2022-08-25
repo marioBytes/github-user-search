@@ -148,6 +148,10 @@ input::placeholder {
   transition: filter 0.45s;
 }
 
+.search-button:disabled {
+  background-color: grey;
+}
+
 .container {
   margin: 0 auto;
   width: 90%;

@@ -22,7 +22,7 @@ const SearchBar = (props) => {
         </div>
         {props.errorMessage && <p className="search-bar__input-container__error-message">{props.errorMessage}</p>}
       </div>
-      <button className="search-button" onClick={props.onClick}>
+      <button className="search-button" disabled={props.loading} onClick={props.onClick}>
         Search
       </button>
     </div>
@@ -31,6 +31,7 @@ const SearchBar = (props) => {
 
 SearchBar.propTypes = {
   errorMessage: propTypes.string,
+  loading: propTypes.bool,
   onChange: propTypes.func.isRequired,
   onClick: propTypes.func.isRequired,
   value: propTypes.string,
