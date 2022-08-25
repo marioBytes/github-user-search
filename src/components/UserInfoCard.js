@@ -184,7 +184,11 @@ const UserInfoCard = ({ user, loading, theme }) => {
           <div>
             <div>
               <h1>{loading ? <Skeleton height="1.625rem" width={150} theme={theme} /> : name}</h1>
-              <p>{loading ? <Skeleton height="1rem" width={85} theme={theme} /> : `@${user.login}`}</p>
+              {loading ? (
+                <Skeleton height="1rem" width={85} theme={theme} />
+              ) : (
+                <p style={{ color: 'var(--light-blue)' }}>@{user.login}</p>
+              )}
             </div>
             <div>
               <p>{loading ? <Skeleton height="0.9375rem" width={105} theme={theme} /> : `Joined: ${convertedDate}`}</p>
